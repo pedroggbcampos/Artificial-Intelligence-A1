@@ -6,6 +6,6 @@ $ javac Main.java Matrix.java
 ```
 
 To run main program:
-...
+```
 $ java Main
-...
+```
