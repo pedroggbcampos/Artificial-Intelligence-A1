@@ -4,8 +4,8 @@ public class Main{
     System.out.println("Tests first Matrix constructer []");
 
 
-    double[] matrix1 = {1, 2, 3, 1, 1, 1};
-    Matrix m1 = new Matrix(2, 3, matrix1);
+    double[] matrix1 = {1, 2};
+    Matrix m1 = new Matrix(2, 1, matrix1);
     System.out.println("Rows    = " + m1.rows);
     System.out.println("Columns = " + m1.columns);
     System.out.println("MATRIX 1");
@@ -21,8 +21,8 @@ public class Main{
     //Tests second Matrix constructer
     System.out.println("Tests second Matrix constructer [][]");
 
-    double[][] matrix2 = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-    Matrix m2 = new Matrix(3, 3, matrix2);
+    double[][] matrix2 = {{1}};
+    Matrix m2 = new Matrix(1, 1, matrix2);
     System.out.println("Rows    = " + m2.rows);
     System.out.println("Columns = " + m2.columns);
     System.out.println("MATRIX 2");
