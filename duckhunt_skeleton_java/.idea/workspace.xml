@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cea17702-f5a0-4da7-969e-7d5f46fd2837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../matrices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../matrices/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../matrices/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../matrices/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../matrices/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../matrices/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -72,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="20" column="35" selection-start-line="20" selection-end-line="21" />
+            <state relative-caret-position="57">
+              <caret line="3" column="12" selection-start-line="3" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -117,7 +114,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../matrices" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -144,12 +141,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1567433436178</updated>
-      <workItem from="1567433437488" duration="1779000" />
+      <workItem from="1567433437488" duration="2856000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1779000" />
+    <option name="totallyTimeSpent" value="2856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="942" extended-state="6" />
@@ -162,7 +159,7 @@
       <window_info id="Learn" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.36557788" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.19472362" />
       <window_info anchor="bottom" id="ConsoleMavenPlugin" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -257,8 +254,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="35" selection-start-line="20" selection-end-line="21" />
+        <state relative-caret-position="57">
+          <caret line="3" column="12" selection-start-line="3" selection-end-line="3" selection-end-column="12" />
         </state>
       </provider>
     </entry>
