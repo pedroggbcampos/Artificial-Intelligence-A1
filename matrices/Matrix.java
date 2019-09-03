@@ -26,24 +26,24 @@ public class Matrix{
   }
 
   /*Returns a row vector*/
-  public double[] getRow(int row){
-    return this.data[row];
+  public Matrix getRow(int row){
+    return new Matrix(1, this.columns, this.data[row]);
   }
 
   /*Returns a column vector*/
-  public double[] getColumn(int col){
+  public Matrix getColumn(int col){
     double[] column = new double[this.rows];
-    for(int i = 0; i < column.length; i++){
+    for(int i = 0; i < this.rows; i++){
       column[i] = this.data[i][col];
     }
-    return column;
+    return new Matrix(this.rows, 1, column);
   }
 
-  public double vectorMultiply(double[] a, double[] b){
+  private double vectorMultiply(Matrix a, Matrix b){
     double res = 0;
 
-    for(int i = 0; i < a.length; i++){
-      res += a[i]*b[i];
+    for(int i = 0; i < a.columns; i++){
+      res += a.data[0][i]*b.data[i][0];
     }
     return res;
   }
@@ -65,6 +65,36 @@ public class Matrix{
     Matrix result = new Matrix(this.rows, b.columns, res);
     return result;
 
+  }
+
+
+  public Matrix elementMultiply(Matrix b){
+    if((this.columns != b.rows) || (this.rows != 1)){
+      throw new java.lang.Error("Can't multiply matrices : this columns != b rows");
+    }
+
+    double[][] res = new double[1][this.columns];
+    for(int col = 0; col < this.columns; col++){
+      res[0][col] = this.data[0][col] * b.data[col][0];
+    }
+
+    //construct and return result matrix
+    Matrix result = new Matrix(1, this.columns, res);
+    return result;
+
+
+  }
+
+  @Override
+  public String toString() {
+    String matrix = "";
+    for(int i = 0; i < this.rows; i++){
+      for(int j = 0; j < this.columns; j++){
+        matrix += this.data[i][j] + " ";
+      }
+      matrix+="\n";
+    }
+    return matrix;
   }
 
 }
