@@ -1,11 +1,16 @@
 # Artificial-Intelligence-A1
 
-In the directory /matrices to (re)compile:
+In the directory /matrices to compile:
 ```
-$ javac Main.java Matrix.java 
+$ make 
 ```
 
 To run main program:
 ```
-$ java Main
+$ make run
+```
+
+To clean .class files:
+```
+$ make clean 
 ```
