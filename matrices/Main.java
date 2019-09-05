@@ -1,24 +1,8 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main{
-
-
-  public static double evaluation(Matrix a, Matrix b, Matrix pi, int n, int[] seq){
-    //initialize alpha with pi
-    Matrix alphas = new Matrix(pi.rows, pi.columns, pi.data);
-
-    //first step
-    alphas = alphas.elementMultiply(b.getColumn(seq[0]));
-
-    for(int i = 1; i< seq.length; i++){
-      alphas = alphas.matrixMultiply(a).elementMultiply(b.getColumn(seq[i]));
-    }
-
-    double seq_prob = 0;
-    for(double i : alphas.data[0]){
-      seq_prob += i;
-    }
-    return seq_prob;
-
-  }
 
   public static void main(String [ ] args){
     //Tests first Matrix constructer
@@ -53,32 +37,33 @@ public class Main{
     System.out.println(mI);
 
 
-//    //Tests vector multiplication
-//    System.out.println("Tests vector multiplication");
-//    System.out.println("If we multiply one row of MATRIX 1 and one column of MATRIX 2, which are vectors, the result is:");
-//    System.out.println(mA.vectorMultiply(mB.getRow(0), mI.getColumn(0)));
+//    //Tests matrix multiplication
+//    System.out.println("Tests matrix multiplication");
+//    System.out.println("If we multiply MATRIX I and MATRIX A the result is:");
+//    Matrix step = mI.matrixMultiply(mA);
+//    System.out.println(step);
 //
-//    System.out.println("\n");
-
-    //Tests matrix multiplication
-    System.out.println("Tests matrix multiplication");
-    System.out.println("If we multiply MATRIX I and MATRIX A the result is:");
-    Matrix step = mI.matrixMultiply(mA);
-    System.out.println(step);
-
-
-    System.out.println("If we multiply MATRIX resultant and MATRIX B the result is:");
-    Matrix res = step.matrixMultiply(mB);
-    System.out.println(res);
-
-    System.out.println("If we multiply MATRIX resultant and MATRIX B the result is:");
-    Matrix t = mI.elementMultiply(mA.getColumn(0));
-    System.out.println(t);
+//
+//    System.out.println("If we multiply MATRIX resultant and MATRIX B the result is:");
+//    Matrix res = step.matrixMultiply(mB);
+//    System.out.println(res);
+//
+//    System.out.println("If we multiply MATRIX resultant and MATRIX B the result is:");
+//    Matrix t = mI.elementMultiply(mA.getColumn(0));
+//    System.out.println(t);
+//
+    Functions f = new Functions();
+    System.out.println(f.evaluation(mA, mB, mI, 8, new int[] {0, 1, 2, 3, 0, 1, 2, 3}));
+    System.out.println();
 
 
-    System.out.println(evaluation(mA, mB, mI, 8, new int[] {0, 1, 2, 3, 0, 1, 2, 3}));
+    int[] states = f.decoding(mA, mB, mI, 4, new int[] {1, 1, 2, 2});
+    System.out.println("Answer state sequence : ");
+    for(int state : states){
+      System.out.print(state + " ");
+    }
 
-
+    System.out.println();
     System.out.println("Everything tested, end of test.");
 
   }

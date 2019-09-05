@@ -1,6 +1,7 @@
 JFLAGS = -g
 JC = javac
 JVM = java
+PCK = matrices
 
 .SUFFIXES: .java .class
 .java.class:
@@ -8,7 +9,8 @@ JVM = java
 
 CLASSES = \
 	Main.java \
-	Matrix.java
+	Matrix.java \
+	Functions.java
 
 MAIN = Main
 

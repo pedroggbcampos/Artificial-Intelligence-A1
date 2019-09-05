@@ -1,8 +1,14 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class Matrix{
 
   public int rows = 0, columns = 0;
-  public double[][] data = null;
+  public double[][] data;
 
+  /*Constructers*/
   public Matrix(int rows, int columns, double[] values){
     this.rows = rows;
     this.columns = columns;
@@ -25,13 +31,41 @@ public class Matrix{
     }
   }
 
-  /*Returns a row vector*/
-  public Matrix getRow(int row){
+  /*Getters & Setters*/
+  public double getPos(int row, int column){
+    return this.data[row][column];
+  }
+
+  public void setPos(int row, int column, double value){
+    this.data[row][column] = value;
+  }
+
+  public double[] getRow(int row){
+    return this.data[row];
+  }
+  public void setRow(int row, double[] vector){
+    this.data[row] = vector;
+  }
+
+  public double[][] getData(){
+    return this.data;
+  }
+  public void setData(double[][] matrix){
+    this.data = matrix;
+  }
+
+  public Matrix getRowAsMatrix(int row){
     return new Matrix(1, this.columns, this.data[row]);
   }
 
-  /*Returns a column vector*/
-  public Matrix getColumn(int col){
+  public double[] getColumn(int col){
+    double[] column = new double[this.rows];
+    for(int i = 0; i < this.rows; i++){
+      column[i] = this.data[i][col];
+    }
+    return column;
+  }
+  public Matrix getColumnAsMatrix(int col){
     double[] column = new double[this.rows];
     for(int i = 0; i < this.rows; i++){
       column[i] = this.data[i][col];
@@ -39,11 +73,24 @@ public class Matrix{
     return new Matrix(this.rows, 1, column);
   }
 
-  private double vectorMultiply(Matrix a, Matrix b){
+  /*Operations*/
+
+  public Matrix transpose(){
+    double[][] transposed = new double[this.columns][this.rows];
+    for(int row = 0; row < this.rows; row++){
+      for(int col = 0; col < this.columns; col++){
+        transposed[col][row] = this.getPos(row, col);
+
+      }
+    }
+    return new Matrix(this.columns, this.rows, transposed);
+  }
+
+  private double vectorMultiply(double[] a, double[] b){
     double res = 0;
 
-    for(int i = 0; i < a.columns; i++){
-      res += a.data[0][i]*b.data[i][0];
+    for(int i = 0; i < a.length; i++){
+      res += a[i]*b[i];
     }
     return res;
   }
@@ -67,22 +114,42 @@ public class Matrix{
 
   }
 
-
-  public Matrix elementMultiply(Matrix b){
-    if((this.columns != b.rows) || (this.rows != 1)){
+  /*Multiplies each row of this matrix by each element of the vector matrix b*/
+  public Matrix elementRowMultiply(Matrix b){
+    if((this.columns != b.rows) || (b.columns != 1)){
       throw new java.lang.Error("Can't multiply matrices : this columns != b rows");
     }
 
-    double[][] res = new double[1][this.columns];
-    for(int col = 0; col < this.columns; col++){
-      res[0][col] = this.data[0][col] * b.data[col][0];
+    double[][] res = new double[this.rows][this.columns];
+
+    for(int row = 0; row < this.rows; row++){
+      for(int col = 0; col < this.columns; col++){
+        res[row][col] = this.data[row][col] * b.data[col][0];
+      }
     }
 
     //construct and return result matrix
-    Matrix result = new Matrix(1, this.columns, res);
+    Matrix result = new Matrix(this.rows, this.columns, res);
     return result;
+  }
 
+  /*Multiplies each column of this matrix by each element of the vector matrix b*/
+  public Matrix elementColumnMultiply(Matrix b){
+    if((this.rows != b.rows) || (b.columns != 1)){
+      throw new java.lang.Error("Can't multiply matrices : this columns != b rows");
+    }
 
+    double[][] res = new double[this.rows][this.columns];
+
+    for(int row = 0; row < this.rows; row++){
+      for(int col = 0; col < this.columns; col++){
+        res[row][col] = this.data[row][col] * b.data[row][0];
+      }
+    }
+
+    //construct and return result matrix
+    Matrix result = new Matrix(this.rows, this.columns, res);
+    return result;
   }
 
   @Override
