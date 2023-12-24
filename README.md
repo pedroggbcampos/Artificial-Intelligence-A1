@@ -1,4 +1,4 @@
-# Artificial-Intelligence-A1
+# Duck Hunt AI
 
 In the directory /matrices to compile:
 ```
